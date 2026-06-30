@@ -3,11 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sidequest Team — Skill & Rollen Check</title>
+<title>Sidequest Team — Dein Steckbrief</title>
 <style>
   :root {
     --bg: #0a0b14;
-    --bg-soft: #11132099;
     --card: #141627;
     --card-2: #1a1d33;
     --line: #262a45;
@@ -16,7 +15,6 @@
     --accent: #00e5b0;
     --accent-2: #7c5cff;
     --accent-glow: #00e5b033;
-    --danger: #ff5470;
     --radius: 16px;
     --shadow: 0 20px 60px -20px #000c;
   }
@@ -37,256 +35,114 @@
   .wrap { max-width: 820px; margin: 0 auto; }
 
   /* Header */
-  header {
-    text-align: center;
-    padding: 28px 20px 8px;
-  }
+  header { text-align: center; padding: 28px 20px 8px; }
   .badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 700;
-    color: var(--accent);
-    background: var(--accent-glow);
-    border: 1px solid #00e5b044;
-    padding: 7px 16px;
-    border-radius: 999px;
-    margin-bottom: 18px;
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700;
+    color: var(--accent); background: var(--accent-glow);
+    border: 1px solid #00e5b044; padding: 7px 16px; border-radius: 999px; margin-bottom: 18px;
   }
-  .badge::before {
-    content: "";
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: var(--accent);
-    box-shadow: 0 0 10px var(--accent);
-  }
+  .badge::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px var(--accent); }
   h1 {
-    font-size: clamp(28px, 6vw, 44px);
-    line-height: 1.1;
-    font-weight: 800;
-    letter-spacing: -0.5px;
+    font-size: clamp(28px, 6vw, 44px); line-height: 1.1; font-weight: 800; letter-spacing: -0.5px;
     background: linear-gradient(110deg, #fff 20%, var(--accent) 60%, var(--accent-2) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 14px;
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 14px;
   }
-  header p {
-    color: var(--muted);
-    max-width: 560px;
-    margin: 0 auto;
-    font-size: 15px;
+  header p { color: var(--muted); max-width: 580px; margin: 0 auto; font-size: 15px; }
+  header p.warm { color: var(--txt); margin-top: 12px; font-size: 14px; }
+  .reassure {
+    margin: 20px auto 0; max-width: 600px;
+    background: linear-gradient(180deg, #7c5cff14, transparent);
+    border: 1px solid #7c5cff33; border-radius: 12px; padding: 14px 18px;
+    font-size: 13.5px; color: #c9c4f0;
   }
+  .reassure b { color: #fff; }
 
   /* Identity */
-  .identity {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin: 26px 0 8px;
-  }
+  .identity { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 26px 0 8px; }
   @media (max-width: 560px) { .identity { grid-template-columns: 1fr; } }
 
   /* Cards */
   .q {
     background: linear-gradient(180deg, var(--card), #11131f);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: 24px 22px;
-    margin-top: 18px;
-    box-shadow: var(--shadow);
-    position: relative;
-    overflow: hidden;
+    border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 24px 22px; margin-top: 18px; box-shadow: var(--shadow); position: relative; overflow: hidden;
   }
-  .q::before {
-    content: "";
-    position: absolute; inset: 0 auto 0 0;
-    width: 4px;
-    background: linear-gradient(var(--accent), var(--accent-2));
-    opacity: 0.8;
-  }
-  .q-head {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    margin-bottom: 6px;
-  }
-  .q-num {
-    flex: 0 0 auto;
-    width: 38px; height: 38px;
-    display: grid; place-items: center;
-    border-radius: 11px;
-    background: var(--accent-glow);
-    border: 1px solid #00e5b055;
-    color: var(--accent);
-    font-weight: 800;
-    font-size: 17px;
-  }
+  .q::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 4px; background: linear-gradient(var(--accent), var(--accent-2)); opacity: 0.8; }
+  .q-head { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 6px; }
+  .q-num { flex: 0 0 auto; width: 38px; height: 38px; display: grid; place-items: center; border-radius: 11px; background: var(--accent-glow); border: 1px solid #00e5b055; color: var(--accent); font-weight: 800; font-size: 17px; }
   .q-title { font-size: 20px; font-weight: 700; letter-spacing: -0.2px; }
   .q-sub { color: var(--muted); font-size: 14px; margin: 4px 0 18px 52px; }
   @media (max-width: 560px) { .q-sub { margin-left: 0; } }
 
+  .block-lbl { font-size: 13px; color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin: 22px 0 8px; }
+  .block-lbl:first-of-type { margin-top: 6px; }
+
   label.fld { display: block; margin-top: 14px; }
-  label.fld > span.lbl {
-    display: block;
-    font-size: 13px;
-    color: var(--muted);
-    margin-bottom: 6px;
-    font-weight: 600;
+  label.fld > span.lbl { display: block; font-size: 14px; color: var(--txt); margin-bottom: 6px; font-weight: 600; }
+  label.fld > span.lbl small { display:block; color: var(--muted); font-weight: 400; font-size: 12.5px; margin-top: 2px; }
+  input[type="text"], textarea, select {
+    width: 100%; background: #0d0f1c; border: 1px solid var(--line); color: var(--txt);
+    border-radius: 11px; padding: 12px 14px; font-size: 15px; font-family: inherit;
+    transition: border-color .15s, box-shadow .15s; resize: vertical;
   }
-  input[type="text"], input[type="number"], textarea, select {
-    width: 100%;
-    background: #0d0f1c;
-    border: 1px solid var(--line);
-    color: var(--txt);
-    border-radius: 11px;
-    padding: 12px 14px;
-    font-size: 15px;
-    font-family: inherit;
-    transition: border-color .15s, box-shadow .15s;
-    resize: vertical;
-  }
-  input:focus, textarea:focus, select:focus {
-    outline: none;
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px var(--accent-glow);
-  }
-  textarea { min-height: 84px; line-height: 1.5; }
+  input:focus, textarea:focus, select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
+  textarea { min-height: 76px; line-height: 1.5; }
   select { appearance: none; cursor: pointer; }
 
   /* Skill rating rows */
-  .skill-grid { margin-top: 8px; }
-  .skill-row {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 10px;
-    align-items: center;
-    padding: 11px 0;
-    border-bottom: 1px dashed var(--line);
-  }
+  .skill-row { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; padding: 11px 0; border-bottom: 1px dashed var(--line); }
   .skill-row:last-child { border-bottom: none; }
   .skill-name { font-size: 14.5px; font-weight: 600; }
-  .skill-name small { display: block; color: var(--muted); font-weight: 400; font-size: 12px; }
   .dots { display: flex; gap: 6px; }
-  .dot {
-    width: 26px; height: 26px;
-    border-radius: 8px;
-    border: 1px solid var(--line);
-    background: #0d0f1c;
-    color: var(--muted);
-    font-size: 12px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all .12s;
-    display: grid; place-items: center;
-  }
+  .dot { width: 26px; height: 26px; border-radius: 8px; border: 1px solid var(--line); background: #0d0f1c; color: var(--muted); font-size: 12px; font-weight: 700; cursor: pointer; transition: all .12s; display: grid; place-items: center; }
   .dot:hover { border-color: var(--accent); color: var(--accent); }
-  .dot.on {
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    border-color: transparent;
-    color: #06121a;
-    box-shadow: 0 4px 14px -4px var(--accent);
-  }
-  .scale-legend {
-    display: flex; justify-content: space-between;
-    font-size: 11px; color: var(--muted);
-    margin: 14px 0 2px;
-  }
+  .dot.on { background: linear-gradient(135deg, var(--accent), var(--accent-2)); border-color: transparent; color: #06121a; box-shadow: 0 4px 14px -4px var(--accent); }
+  .scale-legend { display: flex; justify-content: space-between; font-size: 11.5px; color: var(--muted); margin: 4px 0 2px; }
+
+  /* Personality poles */
+  .pole-row { padding: 14px 0; border-bottom: 1px dashed var(--line); }
+  .pole-row:last-child { border-bottom: none; }
+  .pole-labels { display: flex; justify-content: space-between; font-size: 13.5px; font-weight: 600; margin-bottom: 9px; gap: 10px; }
+  .pole-labels .l { color: var(--accent); }
+  .pole-labels .r { color: #b9a8ff; text-align: right; }
+  .pole-scale { display: flex; gap: 7px; }
+  .pole-dot { flex: 1; height: 30px; border-radius: 8px; border: 1px solid var(--line); background: #0d0f1c; cursor: pointer; transition: all .12s; }
+  .pole-dot:hover { border-color: var(--accent); }
+  .pole-dot.on { background: linear-gradient(135deg, var(--accent), var(--accent-2)); border-color: transparent; box-shadow: 0 4px 14px -4px var(--accent); }
 
   /* Choice chips */
   .chips { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 4px; }
-  .chip {
-    position: relative;
-    cursor: pointer;
-    user-select: none;
-  }
+  .chip { position: relative; cursor: pointer; user-select: none; }
   .chip input { position: absolute; opacity: 0; pointer-events: none; }
-  .chip span {
-    display: inline-block;
-    padding: 9px 15px;
-    border-radius: 999px;
-    border: 1px solid var(--line);
-    background: #0d0f1c;
-    font-size: 13.5px;
-    font-weight: 600;
-    color: var(--muted);
-    transition: all .12s;
-  }
+  .chip span { display: inline-block; padding: 9px 15px; border-radius: 999px; border: 1px solid var(--line); background: #0d0f1c; font-size: 13.5px; font-weight: 600; color: var(--muted); transition: all .12s; }
   .chip:hover span { border-color: var(--accent); color: var(--txt); }
-  .chip input:checked + span {
-    background: var(--accent-glow);
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-  .chip.role input:checked + span {
-    background: linear-gradient(135deg, #7c5cff33, #00e5b022);
-    border-color: var(--accent-2);
-    color: #cbbcff;
-  }
+  .chip input:checked + span { background: var(--accent-glow); border-color: var(--accent); color: var(--accent); }
+  .chip.role input:checked + span { background: linear-gradient(135deg, #7c5cff33, #00e5b022); border-color: var(--accent-2); color: #cbbcff; }
 
-  /* Submit / export */
-  .actions {
-    margin-top: 28px;
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-  button {
-    font-family: inherit;
-    font-weight: 700;
-    font-size: 15px;
-    cursor: pointer;
-    border-radius: 12px;
-    padding: 15px 24px;
-    border: none;
-    transition: transform .1s, box-shadow .15s, opacity .15s;
-    flex: 1 1 auto;
-  }
+  /* Actions / output */
+  .actions { margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap; }
+  button { font-family: inherit; font-weight: 700; font-size: 15px; cursor: pointer; border-radius: 12px; padding: 15px 24px; border: none; transition: transform .1s, box-shadow .15s, opacity .15s; flex: 1 1 auto; }
   button:active { transform: translateY(1px); }
-  .btn-primary {
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    color: #06121a;
-    box-shadow: 0 10px 30px -8px var(--accent);
-  }
-  .btn-ghost {
-    background: var(--card-2);
-    color: var(--txt);
-    border: 1px solid var(--line);
-    flex: 0 1 auto;
-  }
+  .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #06121a; box-shadow: 0 10px 30px -8px var(--accent); }
+  .btn-ghost { background: var(--card-2); color: var(--txt); border: 1px solid var(--line); flex: 0 1 auto; }
   .btn-ghost:hover { border-color: var(--accent); }
 
-  .output {
-    margin-top: 20px;
-    display: none;
-    animation: fade .3s ease;
-  }
+  .output { margin-top: 20px; display: none; animation: fade .3s ease; }
   .output.show { display: block; }
   @keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
   .output h3 { font-size: 16px; margin-bottom: 6px; }
   .output .hint { color: var(--muted); font-size: 13px; margin-bottom: 12px; }
-  .output textarea {
-    min-height: 240px;
-    font-family: "SF Mono", ui-monospace, "Cascadia Code", Consolas, monospace;
-    font-size: 12.5px;
-    line-height: 1.6;
-    background: #06070f;
-  }
+  .output textarea { min-height: 260px; font-family: "SF Mono", ui-monospace, "Cascadia Code", Consolas, monospace; font-size: 12.5px; line-height: 1.6; background: #06070f; }
   .copy-state { color: var(--accent); font-size: 13px; font-weight: 600; margin-top: 8px; min-height: 18px; }
 
   footer { text-align: center; color: var(--muted); font-size: 12px; margin-top: 40px; }
-
-  .save-note {
-    text-align: center; color: var(--muted); font-size: 12px; margin-top: 14px;
-  }
+  .save-note { text-align: center; color: var(--muted); font-size: 12px; margin-top: 14px; }
   .save-note b { color: var(--accent); }
 
   @media print {
     body { background: #fff; color: #000; }
-    .actions, .output, .save-note, .badge { display: none !important; }
+    .actions, .output, .save-note, .badge, .reassure { display: none !important; }
     .q { box-shadow: none; border: 1px solid #ccc; page-break-inside: avoid; }
   }
 </style>
@@ -295,190 +151,271 @@
 <div class="wrap">
   <header>
     <div class="badge">Sidequest Team · 2026</div>
-    <h1>Skill- &amp; Rollen-Check</h1>
-    <p>5 kurze Fragen, ~7 Minuten. Damit wir herausfinden, wo deine Superkraft sitzt — und welches Puzzleteil du im Team bist. Es gibt keine falschen Antworten, sei ehrlich. Am Ende: <b style="color:var(--accent)">„Antworten exportieren"</b> klicken &amp; den Text zurückschicken.</p>
+    <h1>Lern dich &amp; dein Team kennen</h1>
+    <p>Hey! 👋 Wir bauen zusammen coole Sachen — Apps, Spiele, Online-Businesses und mehr. Damit jeder genau das macht, was ihm Spaß macht und liegt, würden wir dich gern ein bisschen kennenlernen.</p>
+    <p class="warm">5 Fragen, ca. 7 Minuten. Es geht um <b>dich als Mensch</b> — nicht um perfekte Antworten.</p>
+    <div class="reassure">💚 <b>Wichtig:</b> Du musst <b>kein Technik-Profi</b> sein und brauchst <b>keine Vorerfahrung</b>. Anfänger sind genauso willkommen wie Profis — wir suchen Leute, nicht Lebensläufe. Antworte einfach ehrlich. Wenn du bei etwas nicht weiterweißt: leer lassen ist völlig okay. 🙂</div>
   </header>
 
   <div class="identity">
-    <label class="fld"><span class="lbl">Name / Nickname</span><input type="text" id="name" placeholder="Wie sollen wir dich nennen?" /></label>
-    <label class="fld"><span class="lbl">Kontakt (optional)</span><input type="text" id="contact" placeholder="Telegram / Discord / E-Mail" /></label>
+    <label class="fld"><span class="lbl">Wie heißt du? (Name / Nickname)</span><input type="text" id="name" placeholder="z.B. Max, oder dein Gamer-Tag" /></label>
+    <label class="fld"><span class="lbl">Wie erreichen wir dich? <small style="display:inline;color:var(--muted)">(optional)</small></span><input type="text" id="contact" placeholder="Telegram / WhatsApp / Discord / E-Mail" /></label>
   </div>
 
-  <!-- Q1 -->
+  <!-- Q1 — Persönlichkeit & Hobbys -->
   <section class="q">
     <div class="q-head">
       <div class="q-num">1</div>
-      <div class="q-title">Deine Superkraft — wo stehst du wirklich?</div>
+      <div class="q-title">Wer bist du? 🌟</div>
     </div>
-    <div class="q-sub">Bewerte dich ehrlich von 0 (gar nicht) bis 5 (Profi-Level, kann ich liefern).</div>
+    <div class="q-sub">Erst mal das Wichtigste: der Mensch hinter dem Bildschirm. Keine richtigen oder falschen Antworten.</div>
 
-    <div class="scale-legend"><span>0 · kann ich nicht</span><span>5 · Profi-Level</span></div>
-    <div class="skill-grid" id="skills"></div>
+    <div class="block-lbl">Was machst du gern in deiner Freizeit?</div>
+    <p style="color:var(--muted); font-size:13px; margin-bottom:10px;">Klick alles an, was auf dich zutrifft 👇</p>
+    <div class="chips" id="hobbys"></div>
 
     <label class="fld" style="margin-top:18px;">
-      <span class="lbl">Worin bist du <b>Weltklasse</b> — was macht dir so schnell keiner nach?</span>
-      <textarea id="q1_super" placeholder="z.B. Ich baue aus einer vagen Idee in 2 Tagen einen funktionierenden Prototyp…"></textarea>
+      <span class="lbl">Erzähl uns mehr über dich!
+        <small>Deine Hobbys, was dich begeistert, was du am Wochenende machst… einfach frei raus.</small></span>
+      <textarea id="q1_about" placeholder="z.B. Ich zocke gern, bin viel im Fitnessstudio, schraube an meinem Auto und schau YouTube über Selbstständigkeit…"></textarea>
+    </label>
+
+    <div class="block-lbl">Was für ein Typ bist du so?</div>
+    <p style="color:var(--muted); font-size:13px; margin-bottom:4px;">Wo zwischen den beiden Seiten siehst du dich? Klick einfach ein Kästchen an.</p>
+    <div id="poles"></div>
+
+    <label class="fld" style="margin-top:18px;">
+      <span class="lbl">Wie würden deine Freunde dich in 3 Worten beschreiben?</span>
+      <input type="text" id="q1_words" placeholder="z.B. loyal, chaotisch-kreativ, ehrgeizig" />
     </label>
   </section>
 
-  <!-- Q2 -->
+  <!-- Q2 — Stärken & Talente -->
   <section class="q">
     <div class="q-head">
       <div class="q-num">2</div>
-      <div class="q-title">Dein Track Record — was hast du schon gerissen?</div>
+      <div class="q-title">Deine Stärken &amp; Talente 💪</div>
     </div>
-    <div class="q-sub">Was hast du gebaut, gestartet, gewachsen oder womit Geld verdient? Auch kleine Wins zählen.</div>
+    <div class="q-sub">Wo fühlst du dich wohl? Bewerte dich ganz entspannt — von 0 (noch nie gemacht / liegt mir nicht) bis 5 (kann ich gut &amp; macht mir Spaß).</div>
 
-    <div class="chips" id="track"></div>
+    <div class="scale-legend"><span>0 · gar nicht mein Ding</span><span>5 · kann ich gut &amp; liebe es</span></div>
+    <div id="skills"></div>
 
-    <label class="fld" style="margin-top:16px;">
-      <span class="lbl">Erzähl's konkret (Projekte, Zahlen, Ergebnisse — auch gescheiterte!)</span>
-      <textarea id="q2_text" placeholder="z.B. Eigener TikTok-Account 40k Follower · Shopify-Store gebaut, 3k€ Umsatz · App für Verein programmiert…"></textarea>
+    <label class="fld" style="margin-top:18px;">
+      <span class="lbl">Wofür kommen Freunde oder Familie zu <b>dir</b>?
+        <small>Wobei fragen dich Leute um Hilfe oder Rat? Das ist oft eine versteckte Stärke. 😉</small></span>
+      <textarea id="q2_help" placeholder="z.B. Wenn was am Handy/PC kaputt ist · bei Streit schlichten · gute Deko-Ideen · Motivation geben…"></textarea>
     </label>
   </section>
 
-  <!-- Q3 -->
+  <!-- Q3 — Interessen & Lernen -->
   <section class="q">
     <div class="q-head">
       <div class="q-num">3</div>
-      <div class="q-title">Dein Antrieb — was zieht dich magisch an?</div>
+      <div class="q-title">Was reizt dich? 🚀</div>
     </div>
-    <div class="q-sub">An welcher Art von Projekt arbeitest du mit Feuer? (Mehrfachauswahl möglich)</div>
+    <div class="q-sub">Was würdest du gern mitbauen — und was möchtest du vielleicht lernen? Egal ob du schon Erfahrung hast oder bei null startest.</div>
 
+    <label class="fld">
+      <span class="lbl">Wo stehst du gerade?</span>
+      <select id="q3_level">
+        <option value="">— ehrlich auswählen, alles ist okay —</option>
+        <option>Kompletter Anfänger — aber neugierig &amp; motiviert</option>
+        <option>Ein bisschen Erfahrung / hobbymäßig</option>
+        <option>Schon ganz fit in einem Bereich</option>
+        <option>Profi / mache das (fast) beruflich</option>
+      </select>
+    </label>
+
+    <div class="block-lbl">Welche Projekte findest du spannend?</div>
     <div class="chips" id="interest"></div>
 
     <label class="fld" style="margin-top:16px;">
-      <span class="lbl">Woran würdest du auch nachts um 3 Uhr <b>freiwillig</b> weiterbauen?</span>
-      <textarea id="q3_text" placeholder="Thema, Nische, Produkttyp — was begeistert dich so sehr, dass es sich nicht wie Arbeit anfühlt?"></textarea>
+      <span class="lbl">Was möchtest du gern <b>lernen</b> oder mal ausprobieren?
+        <small>Etwas, das du schon immer mal können wolltest? Perfekter Moment, es hier reinzuschreiben.</small></span>
+      <textarea id="q3_learn" placeholder="z.B. Videos schneiden, eine App bauen, verkaufen lernen, mit KI arbeiten…"></textarea>
+    </label>
+
+    <label class="fld">
+      <span class="lbl">Woran würdest du auch nachts um 3 <b>freiwillig</b> weiterbasteln?</span>
+      <textarea id="q3_passion" placeholder="Worin verlierst du dich, ohne auf die Uhr zu schauen?"></textarea>
+    </label>
+
+    <label class="fld">
+      <span class="lbl">Hast du schon mal was gebaut, gestartet oder verdient?
+        <small>Kein Muss! Auch „noch nichts" ist eine völlig okaye Antwort. Kleine Sachen zählen auch.</small></span>
+      <textarea id="q3_done" placeholder="z.B. TikTok-Account mit 5k Followern · eigener Garten-Verkauf · Vereins-Website · noch nichts, will aber loslegen"></textarea>
     </label>
   </section>
 
-  <!-- Q4 -->
+  <!-- Q4 — Einsatz & Arbeitsstil -->
   <section class="q">
     <div class="q-head">
       <div class="q-num">4</div>
-      <div class="q-title">Dein Einsatz — wie viel Vollgas geht?</div>
+      <div class="q-title">Dein Einsatz ⏱️</div>
     </div>
-    <div class="q-sub">Damit wir Aufgaben realistisch verteilen. Lieber ehrlich als überversprechen.</div>
+    <div class="q-sub">Damit wir Aufgaben fair und realistisch verteilen. Lieber ehrlich als zu viel versprechen — alles ist okay.</div>
 
     <label class="fld">
-      <span class="lbl">Wie viele fokussierte Stunden pro Woche kannst du reinstecken?</span>
+      <span class="lbl">Wie viel Zeit kannst du ungefähr pro Woche reinstecken?</span>
       <select id="q4_hours">
         <option value="">— auswählen —</option>
-        <option>1–5 h (nebenbei)</option>
+        <option>1–5 h (locker nebenbei)</option>
         <option>5–10 h (ernsthaftes Hobby)</option>
         <option>10–20 h (zweites Standbein)</option>
         <option>20–40 h (Hauptfokus)</option>
-        <option>40 h+ (All-in)</option>
+        <option>40 h+ (voll dabei, all-in)</option>
       </select>
     </label>
 
     <label class="fld">
-      <span class="lbl">Wie selbstständig arbeitest du?</span>
+      <span class="lbl">Wie arbeitest du am liebsten?</span>
       <select id="q4_auto">
         <option value="">— auswählen —</option>
-        <option>Ich brauche klare Schritt-für-Schritt-Anleitung</option>
-        <option>Ich brauche ein Ziel + grobe Richtung, Rest mach ich</option>
+        <option>Zeig mir Schritt für Schritt, was zu tun ist</option>
+        <option>Gib mir ein Ziel + grobe Richtung, den Rest mach ich</option>
         <option>Gib mir das Problem — ich finde den Weg selbst</option>
-        <option>Ich definiere Probleme &amp; Ziele selbst und treibe an</option>
+        <option>Ich denke mir am liebsten selbst Aufgaben aus &amp; lege los</option>
       </select>
     </label>
 
     <label class="fld">
-      <span class="lbl">Wann &amp; wie arbeitest du am besten? (Rhythmus, Zeiten, Setup)</span>
-      <input type="text" id="q4_rhythm" placeholder="z.B. abends + Wochenende, Nachtmensch, am Laptop unterwegs…" />
+      <span class="lbl">Wann &amp; wie arbeitest du am besten?
+        <small>Dein Rhythmus, deine Zeiten, dein Setup — ganz wie es zu deinem Leben passt.</small></span>
+      <input type="text" id="q4_rhythm" placeholder="z.B. abends nach der Arbeit + Wochenende, eher nachts, am Handy unterwegs…" />
     </label>
   </section>
 
-  <!-- Q5 -->
+  <!-- Q5 — Rolle & Antrieb -->
   <section class="q">
     <div class="q-head">
       <div class="q-num">5</div>
-      <div class="q-title">Deine Rolle im Team — welcher Typ bist du?</div>
+      <div class="q-title">Deine Rolle &amp; dein Antrieb 🧩</div>
     </div>
-    <div class="q-sub">Wähl 1–2 Rollen, die am besten zu dir passen. So setzen wir das Puzzle zusammen.</div>
+    <div class="q-sub">Zum Schluss: Wie tickst du im Team und was treibt dich an? So setzen wir das Puzzle perfekt zusammen.</div>
 
+    <div class="block-lbl">Welcher Typ bist du im Team? (1–2 auswählen)</div>
     <div class="chips" id="roles"></div>
 
-    <label class="fld" style="margin-top:16px;">
-      <span class="lbl">Deine Lieblings-Tools / dein Stack</span>
-      <input type="text" id="q5_tools" placeholder="z.B. Figma, Next.js, CapCut, Notion, ChatGPT, Meta Ads…" />
+    <div class="block-lbl">Was treibt dich an? Was ist dir wichtig?</div>
+    <div class="chips" id="motivation"></div>
+
+    <label class="fld" style="margin-top:18px;">
+      <span class="lbl">Kennst oder nutzt du schon Programme / Apps / Tools?
+        <small>Völlig egal welche! Auch CapCut, Canva, Excel oder ChatGPT zählen. Nichts dabei? Einfach leer lassen.</small></span>
+      <input type="text" id="q5_tools" placeholder="z.B. Canva, CapCut, Excel, Photoshop, ChatGPT, Notion…" />
     </label>
 
     <label class="fld">
-      <span class="lbl">Was brauchst du vom Team, um <b>Vollgas</b> zu geben?</span>
-      <textarea id="q5_need" placeholder="z.B. klare Deadlines, kreative Freiheit, jemand der den Tech-Part übernimmt, schnelles Feedback…"></textarea>
+      <span class="lbl">Was brauchst du vom Team, um richtig <b>aufzublühen</b>?</span>
+      <textarea id="q5_need" placeholder="z.B. klare Ansagen, kreative Freiheit, jemand der mir Technik abnimmt, schnelles Feedback, gute Stimmung…"></textarea>
+    </label>
+
+    <label class="fld">
+      <span class="lbl">Willst du uns sonst noch was sagen? <small style="display:inline;color:var(--muted)">(optional)</small></span>
+      <textarea id="q5_more" placeholder="Alles, was hier nicht gepasst hat — raus damit. 🙂"></textarea>
     </label>
   </section>
 
   <!-- Actions -->
   <div class="actions">
-    <button class="btn-primary" onclick="exportAnswers()">✦ Antworten exportieren</button>
+    <button class="btn-primary" onclick="exportAnswers()">✦ Fertig — Antworten exportieren</button>
     <button class="btn-ghost" onclick="window.print()">Als PDF / drucken</button>
     <button class="btn-ghost" onclick="resetForm()">Zurücksetzen</button>
   </div>
 
-  <div class="save-note">Deine Eingaben werden automatisch <b>lokal im Browser gespeichert</b> — du kannst die Seite schließen und später weitermachen.</div>
+  <div class="save-note">Keine Sorge — deine Eingaben werden automatisch <b>nur lokal auf deinem Gerät gespeichert</b>. Nichts wird heimlich verschickt. Du kannst die Seite schließen und später weitermachen.</div>
 
   <!-- Output -->
   <div class="output" id="output">
-    <h3>📋 Fertig! Kopier diesen Text und schick ihn zurück:</h3>
-    <p class="hint">Einfach unten in das Feld klicken → alles wird markiert → kopieren (Strg/Cmd + C) → an das Team senden.</p>
+    <h3>🎉 Super, geschafft! Kopier diesen Text und schick ihn zurück:</h3>
+    <p class="hint">Ins Feld tippen → alles wird markiert → kopieren (am Handy: lang drücken → „Alles auswählen" → Kopieren) → ans Team schicken. Fertig!</p>
     <textarea id="result" readonly onclick="this.select()"></textarea>
-    <button class="btn-primary" style="margin-top:12px;" onclick="copyResult()">In Zwischenablage kopieren</button>
+    <button class="btn-primary" style="margin-top:12px;" onclick="copyResult()">📋 In Zwischenablage kopieren</button>
     <div class="copy-state" id="copyState"></div>
   </div>
 
-  <footer>Sidequest Team · interner Skill-Check · {erstellt für autonome Projekt- &amp; Business-Entwicklung 2026}</footer>
+  <footer>Sidequest Team · dein persönlicher Steckbrief · gemeinsam Projekte &amp; Online-Businesses bauen 2026</footer>
 </div>
 
 <script>
   /* ---------- Data ---------- */
-  const SKILLS = [
-    ["Entwicklung / Programmierung", "Web, App, Backend, Automatisierung"],
-    ["Design / UI/UX", "Interfaces, Branding, Grafik"],
-    ["Content / Video / Social", "Reels, Schnitt, Storytelling, Reichweite"],
-    ["Marketing / Werbung / SEO", "Ads, Funnels, Traffic, Copywriting"],
-    ["Sales / Akquise", "Kunden gewinnen, verkaufen, verhandeln"],
-    ["Strategie / Produkt / Business", "Idee bewerten, Modell, Monetarisierung"],
-    ["Organisation / PM / Finanzen", "Struktur, Deadlines, Zahlen, Koordination"],
-    ["KI / Automatisierung / Tools", "Prompting, Agents, No-Code, Workflows"]
-  ];
-  const TRACK = ["App/Software gebaut","Website/Landingpage gebaut","Online-Shop betrieben","Social-Media-Reichweite aufgebaut","Kunden/Aufträge akquiriert","Online Geld verdient","Spiel/Mod entwickelt","Community aufgebaut","Eigenes Business gestartet","Noch am Anfang — aber motiviert"];
-  const INTEREST = ["Apps / SaaS","Spiele / Gaming","E-Commerce / Shops","Content / Creator-Business","KI-Tools / Automatisierung","Plattformen / Marktplätze","Agentur / Dienstleistung","Web3 / Krypto","Faceless / Media","Physische Produkte"];
-  const ROLES = [
-    ["🚀 Der Visionär", "Ideen, Vision, große Linie"],
-    ["🔨 Der Macher", "setzt um, baut, liefert"],
-    ["🎯 Der Finisher", "bringt zu Ende, Qualität, Details"],
-    ["📈 Der Growth-Hacker", "Reichweite, Marketing, Verkauf"],
-    ["🧭 Der Koordinator", "Überblick, verteilt, hält zusammen"],
-    ["🎨 Der Kreative", "Design, Content, Ästhetik"]
+  const HOBBYS = ["🎮 Gaming","💪 Sport & Fitness","🎵 Musik","🍳 Kochen & Backen","✈️ Reisen","📸 Foto & Video","📚 Lesen","🎨 Zeichnen & Kunst","🐾 Tiere & Natur","👗 Mode & Beauty","🚗 Autos & Technik","🎬 Filme & Serien","📱 Social Media","🔧 Basteln & Heimwerken","💃 Tanzen & Ausgehen","🌱 Gärtnern","⚽ Teamsport","🧘 Achtsamkeit / Yoga","🎲 Brett- & Kartenspiele","💸 Geld & Investieren"];
+
+  const POLES = [
+    ["Eher ruhig & für mich", "Gesellig & unter Leuten"],
+    ["Erst in Ruhe planen", "Einfach loslegen"],
+    ["Detail-Fan, gründlich", "Großes-Ganzes-Denker"],
+    ["Arbeite lieber allein", "Blühe im Team auf"],
+    ["Morgenmensch ☀️", "Nachteule 🌙"]
   ];
 
-  /* ---------- Build UI ---------- */
+  const SKILLS = [
+    "🗣️ Mit Menschen reden & überzeugen",
+    "🎨 Kreativ gestalten & Design",
+    "✍️ Schreiben & Texte formulieren",
+    "🗂️ Organisieren & planen",
+    "💻 Technik, Computer & Apps",
+    "🤝 Verkaufen & netzwerken",
+    "🎬 Video, Foto & Social Media",
+    "📊 Zahlen, Analyse & Logik"
+  ];
+
+  const INTEREST = ["📱 Apps / Software","🎮 Spiele / Gaming","🛒 Online-Shops","🎥 Content / Creator-Business","🤖 KI-Tools & Automatisierung","🌐 Plattformen / Communities","💼 Dienstleistung / Agentur","🎨 Design & Kreatives","✍️ Schreiben / Texte","📈 Marketing & Werbung"];
+
+  const ROLES = [
+    ["🚀 Der Visionär", "Ideen & große Linie"],
+    ["🔨 Der Macher", "setzt um & liefert"],
+    ["🎯 Der Finisher", "bringt's zu Ende, Qualität"],
+    ["📈 Der Growth-Typ", "Reichweite & Verkauf"],
+    ["🧭 Der Koordinator", "Überblick & Orga"],
+    ["🎨 Der Kreative", "Design & Content"],
+    ["🧩 Der Allrounder", "noch am Entdecken, packt überall an"]
+  ];
+
+  const MOTIVATION = ["💰 Geld verdienen","🕊️ Frei & unabhängig sein","🛠️ Etwas Eigenes erschaffen","🧠 Neues lernen","👥 Teil eines Teams sein","🏆 Stolz & Anerkennung","😄 Einfach Spaß haben","🌍 Etwas bewegen","🔥 Großes erreichen"];
+
+  /* ---------- Build: skills ---------- */
   const skillState = {};
   const skillsEl = document.getElementById("skills");
   SKILLS.forEach((s, i) => {
     skillState[i] = 0;
     const row = document.createElement("div");
     row.className = "skill-row";
-    row.innerHTML = `<div class="skill-name">${s[0]}<small>${s[1]}</small></div>`;
+    row.innerHTML = `<div class="skill-name">${s}</div>`;
     const dots = document.createElement("div");
     dots.className = "dots";
     for (let v = 0; v <= 5; v++) {
       const d = document.createElement("div");
       d.className = "dot"; d.textContent = v;
-      d.onclick = () => {
-        skillState[i] = v;
-        [...dots.children].forEach((c, ci) => c.classList.toggle("on", ci === v));
-        save();
-      };
+      d.onclick = () => { skillState[i] = v; [...dots.children].forEach((c, ci) => c.classList.toggle("on", ci === v)); save(); };
       dots.appendChild(d);
     }
     row.appendChild(dots);
     skillsEl.appendChild(row);
   });
 
+  /* ---------- Build: personality poles ---------- */
+  const poleState = {};
+  const polesEl = document.getElementById("poles");
+  POLES.forEach((p, i) => {
+    poleState[i] = -1;
+    const row = document.createElement("div");
+    row.className = "pole-row";
+    row.innerHTML = `<div class="pole-labels"><span class="l">${p[0]}</span><span class="r">${p[1]}</span></div>`;
+    const scale = document.createElement("div");
+    scale.className = "pole-scale";
+    for (let v = 0; v < 5; v++) {
+      const d = document.createElement("div");
+      d.className = "pole-dot";
+      d.onclick = () => { poleState[i] = v; [...scale.children].forEach((c, ci) => c.classList.toggle("on", ci === v)); save(); };
+      scale.appendChild(d);
+    }
+    row.appendChild(scale);
+    polesEl.appendChild(row);
+  });
+
+  /* ---------- Build: chips ---------- */
   function buildChips(containerId, items, name, roleStyle) {
     const el = document.getElementById(containerId);
     items.forEach(it => {
@@ -491,77 +428,78 @@
       el.appendChild(l);
     });
   }
-  buildChips("track", TRACK, "track");
+  buildChips("hobbys", HOBBYS, "hobbys");
   buildChips("interest", INTEREST, "interest");
   buildChips("roles", ROLES, "roles", true);
+  buildChips("motivation", MOTIVATION, "motivation");
 
-  /* ---------- Save / Load (localStorage) ---------- */
-  const KEY = "sidequest_fragebogen_v1";
-  const textIds = ["name","contact","q1_super","q2_text","q3_text","q4_hours","q4_auto","q4_rhythm","q5_tools","q5_need"];
+  /* ---------- Save / Load ---------- */
+  const KEY = "sidequest_steckbrief_v2";
+  const textIds = ["name","contact","q1_about","q1_words","q2_help","q3_level","q3_learn","q3_passion","q3_done","q4_hours","q4_auto","q4_rhythm","q5_tools","q5_need","q5_more"];
   textIds.forEach(id => document.getElementById(id).addEventListener("input", save));
 
-  function getChecks(name) {
-    return [...document.querySelectorAll(`input[name="${name}"]:checked`)].map(c => c.value);
-  }
+  function getChecks(name) { return [...document.querySelectorAll(`input[name="${name}"]:checked`)].map(c => c.value); }
   function save() {
-    const data = { skills: skillState, texts: {}, track: getChecks("track"), interest: getChecks("interest"), roles: getChecks("roles") };
+    const data = { skills: skillState, poles: poleState, texts: {}, hobbys: getChecks("hobbys"), interest: getChecks("interest"), roles: getChecks("roles"), motivation: getChecks("motivation") };
     textIds.forEach(id => data.texts[id] = document.getElementById(id).value);
     try { localStorage.setItem(KEY, JSON.stringify(data)); } catch(e){}
   }
   function load() {
     let data; try { data = JSON.parse(localStorage.getItem(KEY)); } catch(e){ return; }
     if (!data) return;
-    if (data.skills) Object.entries(data.skills).forEach(([i,v]) => {
-      skillState[i] = v;
-      const dots = skillsEl.children[i]?.querySelector(".dots");
-      if (dots) [...dots.children].forEach((c,ci) => c.classList.toggle("on", ci === v));
-    });
+    if (data.skills) Object.entries(data.skills).forEach(([i,v]) => { skillState[i] = v; const dots = skillsEl.children[i]?.querySelector(".dots"); if (dots) [...dots.children].forEach((c,ci) => c.classList.toggle("on", ci === v)); });
+    if (data.poles) Object.entries(data.poles).forEach(([i,v]) => { poleState[i] = v; if (v >= 0) { const sc = polesEl.children[i]?.querySelector(".pole-scale"); if (sc) [...sc.children].forEach((c,ci) => c.classList.toggle("on", ci === v)); } });
     if (data.texts) textIds.forEach(id => { if (data.texts[id] != null) document.getElementById(id).value = data.texts[id]; });
-    ["track","interest","roles"].forEach(name => {
-      (data[name]||[]).forEach(val => {
-        const inp = document.querySelector(`input[name="${name}"][value="${CSS.escape(val)}"]`);
-        if (inp) inp.checked = true;
-      });
-    });
+    ["hobbys","interest","roles","motivation"].forEach(name => { (data[name]||[]).forEach(val => { const inp = document.querySelector(`input[name="${name}"][value="${CSS.escape(val)}"]`); if (inp) inp.checked = true; }); });
   }
   load();
 
   /* ---------- Export ---------- */
+  function poleText(i) {
+    const v = poleState[i];
+    if (v < 0) return "—";
+    const marks = ["◀ stark "+POLES[i][0], "eher "+POLES[i][0], "mittendrin", "eher "+POLES[i][1], POLES[i][1]+" stark ▶"];
+    return marks[v];
+  }
+  function val(id) { return document.getElementById(id).value || "—"; }
+
   function exportAnswers() {
-    const name = document.getElementById("name").value || "(kein Name)";
-    const contact = document.getElementById("contact").value || "—";
     let out = "";
     out += "════════════════════════════════════════\n";
-    out += "  SIDEQUEST TEAM · SKILL- & ROLLEN-CHECK\n";
+    out += "   SIDEQUEST TEAM · STECKBRIEF\n";
     out += "════════════════════════════════════════\n";
-    out += "Name:    " + name + "\n";
-    out += "Kontakt: " + contact + "\n\n";
+    out += "Name:    " + (document.getElementById("name").value || "(kein Name)") + "\n";
+    out += "Kontakt: " + val("contact") + "\n\n";
 
-    out += "── 1) SUPERKRAFT (Selbsteinschätzung 0–5) ──\n";
-    SKILLS.forEach((s,i) => {
-      const v = skillState[i] || 0;
-      const bar = "█".repeat(v) + "░".repeat(5-v);
-      out += `  ${bar} ${v}/5  ${s[0]}\n`;
-    });
-    out += "\n  Weltklasse in: " + (document.getElementById("q1_super").value || "—") + "\n\n";
+    out += "── 1) WER BIST DU? ──\n";
+    out += "  Hobbys: " + (getChecks("hobbys").join(", ") || "—") + "\n";
+    out += "  Über mich: " + val("q1_about") + "\n";
+    out += "  Persönlichkeit:\n";
+    POLES.forEach((p,i) => { out += "    • " + poleText(i) + "\n"; });
+    out += "  In 3 Worten: " + val("q1_words") + "\n\n";
 
-    out += "── 2) TRACK RECORD ──\n";
-    out += "  Bereiche: " + (getChecks("track").join(", ") || "—") + "\n";
-    out += "  Details:  " + (document.getElementById("q2_text").value || "—") + "\n\n";
+    out += "── 2) STÄRKEN & TALENTE (0–5) ──\n";
+    SKILLS.forEach((s,i) => { const v = skillState[i]||0; out += "  " + "█".repeat(v) + "░".repeat(5-v) + " " + v + "/5  " + s + "\n"; });
+    out += "  Leute fragen mich bei: " + val("q2_help") + "\n\n";
 
-    out += "── 3) ANTRIEB ──\n";
-    out += "  Interessen: " + (getChecks("interest").join(", ") || "—") + "\n";
-    out += "  Leidenschaft: " + (document.getElementById("q3_text").value || "—") + "\n\n";
+    out += "── 3) INTERESSEN & LERNEN ──\n";
+    out += "  Level: " + val("q3_level") + "\n";
+    out += "  Interessante Projekte: " + (getChecks("interest").join(", ") || "—") + "\n";
+    out += "  Möchte lernen: " + val("q3_learn") + "\n";
+    out += "  Leidenschaft (nachts um 3): " + val("q3_passion") + "\n";
+    out += "  Schon gemacht: " + val("q3_done") + "\n\n";
 
     out += "── 4) EINSATZ ──\n";
-    out += "  Stunden/Woche: " + (document.getElementById("q4_hours").value || "—") + "\n";
-    out += "  Selbstständigkeit: " + (document.getElementById("q4_auto").value || "—") + "\n";
-    out += "  Rhythmus/Setup: " + (document.getElementById("q4_rhythm").value || "—") + "\n\n";
+    out += "  Zeit/Woche: " + val("q4_hours") + "\n";
+    out += "  Arbeitsweise: " + val("q4_auto") + "\n";
+    out += "  Rhythmus/Setup: " + val("q4_rhythm") + "\n\n";
 
-    out += "── 5) ROLLE IM TEAM ──\n";
-    out += "  Rolle(n): " + (getChecks("roles").join(", ") || "—") + "\n";
-    out += "  Tools/Stack: " + (document.getElementById("q5_tools").value || "—") + "\n";
-    out += "  Braucht vom Team: " + (document.getElementById("q5_need").value || "—") + "\n";
+    out += "── 5) ROLLE & ANTRIEB ──\n";
+    out += "  Team-Rolle(n): " + (getChecks("roles").join(", ") || "—") + "\n";
+    out += "  Antrieb: " + (getChecks("motivation").join(", ") || "—") + "\n";
+    out += "  Tools: " + val("q5_tools") + "\n";
+    out += "  Braucht vom Team: " + val("q5_need") + "\n";
+    out += "  Sonst noch: " + val("q5_more") + "\n";
     out += "════════════════════════════════════════\n";
 
     const res = document.getElementById("result");
@@ -574,19 +512,11 @@
   function copyResult() {
     const res = document.getElementById("result");
     res.select();
-    navigator.clipboard.writeText(res.value).then(() => {
-      document.getElementById("copyState").textContent = "✓ Kopiert! Jetzt ans Team schicken.";
-    }).catch(() => {
-      document.execCommand("copy");
-      document.getElementById("copyState").textContent = "✓ Kopiert!";
-    });
+    navigator.clipboard.writeText(res.value).then(() => { document.getElementById("copyState").textContent = "✓ Kopiert! Jetzt ans Team schicken. 🎉"; })
+      .catch(() => { document.execCommand("copy"); document.getElementById("copyState").textContent = "✓ Kopiert!"; });
   }
 
-  function resetForm() {
-    if (!confirm("Wirklich alle Antworten löschen?")) return;
-    localStorage.removeItem(KEY);
-    location.reload();
-  }
+  function resetForm() { if (!confirm("Wirklich alle Antworten löschen?")) return; localStorage.removeItem(KEY); location.reload(); }
 </script>
 </body>
 </html>
